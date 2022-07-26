@@ -24,10 +24,14 @@ public class HomePage {
     private WebElement user;
     @FindBy(xpath = "//a[text()='Log in']")
     private WebElement login;
-
     @FindBy(xpath = "//a[text()='Register']")
     private WebElement register;
-
+    @FindBy(css="div[class='collapse navbar-collapse js-navbar-collapse']")
+    private WebElement cars;
+    @FindBy(xpath="//nav[@id='navigation']/ul/li/a[@href='/en/guestbook-en']")
+    private WebElement guestbook;
+    @FindBy(xpath = "//nav[@id='navigation']/ul/li/a[@href='/en/contact-en']")
+    private WebElement contact;
 
 
 
@@ -38,15 +42,17 @@ public class HomePage {
     public void clickOnLogin(){
         this.elementMethods.clickElement(login);
     }
-
     public void clickOnRegister(){
         this.elementMethods.clickElement(register);
     }
-
-
-
-
-
-
+    public void  clickOnCars(){
+        this.elementMethods.clickElement(cars);
+    }
+    public void clickOnGuestbook() {
+        this.elementMethods.clickElement(guestbook);
+    }
+    public void clickOnContact(){
+        this.elementMethods.clickElement(contact);
+    }
 
 }
