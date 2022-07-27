@@ -50,6 +50,23 @@ public class GuestbookPage extends HomePage{
       //  elementMethods.clickElement(send);
     }
 
+    public void  writeCommentWithoutName(HashMap<String, String> testData){
+        elementMethods.clickElement(name);
+        elementMethods.clickElement(message);
+        elementMethods.fillElement(message, testData.get("message"));
+        elementMethods.clickElement(checkBox);
+        elementMethods.clickElement(send);
+    }
+
+    public void  writeCommentWithoutMessage(HashMap<String, String> testData){
+        elementMethods.clickElement(name);
+        elementMethods.fillElement(name, testData.get("name"));
+        elementMethods.clickElement(message);
+        elementMethods.clickElement(checkBox);
+        elementMethods.clickElement(send);
+    }
+
+
 
 
 

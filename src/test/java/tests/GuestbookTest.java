@@ -6,6 +6,16 @@ import pages.HomePage;
 
 public class GuestbookTest extends HomeTest {
 
+
+    @Test
+    public void checkboxTest(){
+        HomePage homePage= new HomePage(this.getDriver());
+        homePage.clickOnGuestbook();
+        GuestbookPage guestbook = new GuestbookPage(this.getDriver());
+        guestbook.clickAccept();
+        guestbook.clickCheckBox();
+    }
+
     @Test
     public void GuestbookTest() {
 
@@ -17,17 +27,24 @@ public class GuestbookTest extends HomeTest {
         guestbook.clickAccept();
     }
 
+
     @Test
-    public void checkboxTest(){
+    public void writeMessageWithoutName(){
+        populateTestData();
         HomePage homePage= new HomePage(this.getDriver());
         homePage.clickOnGuestbook();
         GuestbookPage guestbook = new GuestbookPage(this.getDriver());
-        guestbook.clickAccept();
-        guestbook.clickCheckBox();
-
+        guestbook.writeCommentWithoutName(testData);
     }
 
-
+    @Test
+    public void writeMessageWithoutMessage(){
+        populateTestData();
+        HomePage homePage= new HomePage(this.getDriver());
+        homePage.clickOnGuestbook();
+        GuestbookPage guestbook = new GuestbookPage(this.getDriver());
+        guestbook.writeCommentWithoutMessage(testData);
+    }
 
 
 

@@ -3,7 +3,10 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.HashMap;
 
 public class ContactPage extends HomePage{
@@ -93,11 +96,75 @@ public class ContactPage extends HomePage{
         elementMethods.clickElement(message);
         elementMethods.fillElement(message, testData.get("message"));
         elementMethods.clickElement(checkBox);
-        elementMethods.clickElement(send);
+//        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(16));
+//        try {
+//            wait.wait(15);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+        //elementMethods.clickElement(send);
 
     }
 
+    public void sendContactMessageWithoutName(HashMap<String, String> testData) {
+        elementMethods.clickElement(name);
 
+        elementMethods.clickElement(phone);
+        elementMethods.fillElement(phone, testData.get("phone"));
+        elementMethods.clickElement(email);
+        elementMethods.fillElement(email, testData.get("email"));
+        elementMethods.clickElement(locality);
+        elementMethods.fillElement(locality, testData.get("locality"));
+        elementMethods.clickElement(company);
+        elementMethods.fillElement(company, testData.get("company"));
+        elementMethods.clickElement(message);
+        elementMethods.fillElement(message, testData.get("message"));
+        elementMethods.clickElement(checkBox);
+        elementMethods.clickElement(send);
+    }
+
+    public void sendContactMessageWithoutPhone(HashMap<String, String> testData) {
+        elementMethods.clickElement(name);
+        elementMethods.fillElement(name, testData.get("name"));
+        elementMethods.clickElement(phone);
+        elementMethods.clickElement(email);
+        elementMethods.fillElement(email, testData.get("email"));
+        elementMethods.clickElement(locality);
+        elementMethods.fillElement(locality, testData.get("locality"));
+        elementMethods.clickElement(company);
+        elementMethods.fillElement(company, testData.get("company"));
+        elementMethods.clickElement(message);
+        elementMethods.fillElement(message, testData.get("message"));
+        elementMethods.clickElement(checkBox);
+        elementMethods.clickElement(send);
+    }
+    public void sendContactMessageWithoutEmail(HashMap<String, String> testData) {
+        elementMethods.clickElement(name);
+        elementMethods.fillElement(name, testData.get("name"));
+        elementMethods.clickElement(phone);
+        elementMethods.fillElement(phone, testData.get("phone"));
+        elementMethods.clickElement(email);
+        elementMethods.clickElement(company);
+        elementMethods.fillElement(company, testData.get("company"));
+        elementMethods.clickElement(message);
+        elementMethods.fillElement(message, testData.get("message"));
+        elementMethods.clickElement(checkBox);
+        elementMethods.clickElement(send);
+    }
+
+    public void sendContactMessageWithoutMessage(HashMap<String, String> testData) {
+        elementMethods.clickElement(name);
+        elementMethods.fillElement(name, testData.get("name"));
+        elementMethods.clickElement(phone);
+        elementMethods.fillElement(phone, testData.get("phone"));
+        elementMethods.clickElement(email);
+        elementMethods.fillElement(email, testData.get("email"));
+        elementMethods.clickElement(locality);
+        elementMethods.fillElement(locality, testData.get("locality"));
+        elementMethods.clickElement(message);
+        elementMethods.clickElement(checkBox);
+        elementMethods.clickElement(send);
+    }
 
 
 }
