@@ -16,13 +16,18 @@ public class GuestbookPage extends HomePage{
     private WebElement name;
     @FindBy(xpath = "//textarea[@placeholder='Message']")
     private WebElement message;
-    @FindBy(xpath = "//div[@id='rc-anchor-container']")
+    @FindBy(xpath = "//div[@class='g-recaptcha']")
     private WebElement checkBox;
     @FindBy(xpath ="//button[@class='btn btn-default']")
     private  WebElement send;
+    @FindBy(xpath = "//a[@aria-label='dismiss cookie message']")
+    private WebElement buttonAccept;
 
 
 
+    public void clickAccept(){
+        this.elementMethods.clickElement(buttonAccept);
+    }
     public void clickSend(){
         this.elementMethods.clickElement(send);
     }

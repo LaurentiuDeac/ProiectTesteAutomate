@@ -6,9 +6,6 @@ import pages.LoginPage;
 
 public class LoginTest extends HomeTest {
 
-    public LoginTest(){
-    }
-
     @Test
     public void LoginWithSuccess(){
         populateTestData();
@@ -18,7 +15,6 @@ public class LoginTest extends HomeTest {
 
         LoginPage loginPage = new LoginPage(this.getDriver());
         loginPage.login(testData);
-
     }
 
     @Test
@@ -30,7 +26,6 @@ public class LoginTest extends HomeTest {
 
         LoginPage loginPage = new LoginPage(this.getDriver());
         loginPage.loginWithWrongPassword(testData);
-
     }
 
     @Test
@@ -42,7 +37,6 @@ public class LoginTest extends HomeTest {
 
         LoginPage loginPage = new LoginPage(this.getDriver());
         loginPage.loginWithWrongEmail(testData);
-
     }
 
 

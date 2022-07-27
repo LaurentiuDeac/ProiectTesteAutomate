@@ -23,7 +23,7 @@ public class ContactPage extends HomePage{
     private WebElement company;
     @FindBy(xpath = "//textarea[@placeholder='Message']")
     private WebElement message;
-    @FindBy(css = "//label[@class='rc-anchor-center-item rc-anchor-checkbox-label']")
+    @FindBy(xpath = "//div[@class='g-recaptcha']")
     private WebElement checkBox;
     @FindBy(xpath = "//button[@class='btn btn-default']")
     private WebElement send;
@@ -31,12 +31,19 @@ public class ContactPage extends HomePage{
     private WebElement aboutUs;
     @FindBy(xpath = "//a[@href='/en/gdpr-en']")
     private WebElement gdpr;
+    @FindBy(xpath = "//a[@aria-label='dismiss cookie message']")
+    private WebElement buttonAccept;
+    @FindBy(xpath = "//button[@class='rc-button-default goog-inline-block']")
+    private  WebElement skip;
 
 
 
-
-
-
+    public void clickSkip(){
+        this.elementMethods.clickElement(skip);
+    }
+    public void clickAccept(){
+        this.elementMethods.clickElement(buttonAccept);
+    }
     public void clickName(){
         this.elementMethods.clickElement(name);
     }
@@ -62,11 +69,13 @@ public class ContactPage extends HomePage{
         this.elementMethods.clickElement(send);
     }
     public void clickAboutUs(){
-        this.elementMethods.clickElement(aboutUs);
+        //elementMethods.scrollIntoViewElement(aboutUs);
+        this.elementMethods.clickJsElement(aboutUs);
     }
 
     public void clickgdpr(){
-        elementMethods.clickElement(gdpr);
+        //elementMethods.scrollIntoViewElement(gdpr);
+        this.elementMethods.clickJsElement(gdpr);
     }
 
 
@@ -84,7 +93,7 @@ public class ContactPage extends HomePage{
         elementMethods.clickElement(message);
         elementMethods.fillElement(message, testData.get("message"));
         elementMethods.clickElement(checkBox);
-       // elementMethods.clickElement(send);
+        elementMethods.clickElement(send);
 
     }
 

@@ -14,8 +14,7 @@ public class GuestbookTest extends HomeTest {
         homePage.clickOnGuestbook();
         GuestbookPage guestbook = new GuestbookPage(this.getDriver());
         guestbook.sendMessage(testData);
-
-
+        guestbook.clickAccept();
     }
 
     @Test
@@ -23,6 +22,7 @@ public class GuestbookTest extends HomeTest {
         HomePage homePage= new HomePage(this.getDriver());
         homePage.clickOnGuestbook();
         GuestbookPage guestbook = new GuestbookPage(this.getDriver());
+        guestbook.clickAccept();
         guestbook.clickCheckBox();
 
     }

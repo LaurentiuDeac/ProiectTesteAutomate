@@ -11,53 +11,45 @@ public class CarsPage  extends HomePage{
 
     @FindBy(css = "div[class='atribute-title TitleSideBar']")
     private WebElement brandButton;
-
     @FindBy(xpath = "//a[@href='/en/car-rentals/filter/brand-audi-63-127']")
     private  WebElement Audi;
     @FindBy(xpath = "//a[text()='BMW ']")
     private WebElement Bmw;
-
     @FindBy(xpath = "//a[text()='Volkswagen ']")
     private WebElement Volkswagen;
-
     @FindBy(xpath = "//div[text()=' Transmission ']")
     private WebElement transmissionButton;
-
     //*[@id="divAtributes"]/div/div[2]/div[1]
     //div[text()=' Transmission ']
     //span[@class='glyphicon glyphicon-chevron-down']
-
     @FindBy(xpath = "//a[text()='Automatic ']")
     private WebElement transmissionAutomatic;
-
     //a[@href='/en/car-rentals/filter/transmission-automatic-53-101']
-
     @FindBy(xpath = "//a[text()='Manual ']")
     private WebElement transmissionManual;
-
     @FindBy(xpath = "//div[text()=' Number of seats ']")
     private WebElement numberOfSeatsButton;
-
     @FindBy(xpath = "//a[text()='5 ' and contains(@href,'number-of-seats-5')]")
     private WebElement numberOfSeats5;
-
     @FindBy(xpath = "//a[text()='4 ' and contains(@href,'number-of-seats-4')]")
     private WebElement numberOfSeats4;
-
     @FindBy(xpath = "//div[text()=' Number of doors ']")
     private WebElement numberOfDoorsButton;
-
     @FindBy(xpath = "//a[text()='4 ' and contains(@href,'number-of-doors-4')]")
     private WebElement numberOfDoors4;
-
     @FindBy(xpath= "//a[text()='5 ' and contains(@href,'number-of-doors-5')]")
     private WebElement numberOfDoors5;
+    @FindBy(xpath = "//a[@aria-label='dismiss cookie message']")
+    private WebElement buttonAccept;
 
 
 
 
 
 
+    public void  clcikAccept(){
+        this.elementMethods.clickElement(buttonAccept);
+    }
     public void clickOnNumberOfDoors5(){
         this.elementMethods.clickElement(numberOfDoors5);
     }

@@ -28,7 +28,7 @@ public class CarsTest extends HomeTest{
         HomePage homePage= new HomePage(this.getDriver());
         homePage.clickOnCars();
         CarsPage carsPage = new CarsPage(this.getDriver());
-
+        carsPage.clcikAccept();
         carsPage.clickOnBrand();
         carsPage.clickOnAudi();
         validateCarsBrand("audi");
@@ -39,6 +39,7 @@ public class CarsTest extends HomeTest{
         HomePage homePage = new HomePage(this.getDriver());
         homePage.clickOnCars();
         CarsPage carsPage = new CarsPage(this.getDriver());
+        carsPage.clcikAccept();
         carsPage.clickOnTransmission();
         carsPage.clickOnAutomatic();
         validateCarsTransmission("automatic");
@@ -118,6 +119,7 @@ public class CarsTest extends HomeTest{
         HomePage homePage= new HomePage(this.getDriver());
         homePage.clickOnCars();
         CarsPage carsPage = new CarsPage(this.getDriver());
+        carsPage.clcikAccept();
         carsPage.clickOnBrand();
         carsPage.clickOnAudi();
         carsPage.clickOnTransmission();
@@ -133,6 +135,7 @@ public class CarsTest extends HomeTest{
         HomePage homePage = new HomePage(this.getDriver());
         homePage.clickOnCars();
         CarsPage carsPage = new CarsPage(this.getDriver());
+        carsPage.clcikAccept();
         carsPage.clickOnBrand();
         carsPage.clickOnBmw();
         carsPage.clickOnTransmission();
@@ -147,6 +150,7 @@ public class CarsTest extends HomeTest{
         HomePage homePage = new HomePage(this.getDriver());
         homePage.clickOnCars();
         CarsPage carsPage = new CarsPage(this.getDriver());
+        carsPage.clcikAccept();
         carsPage.clickOnBrand();
         carsPage.clickOnWolkswagen();
         carsPage.clickOnTransmission();
@@ -162,6 +166,7 @@ public class CarsTest extends HomeTest{
         HomePage homePage = new HomePage(this.getDriver());
         homePage.clickOnCars();
         CarsPage carsPage = new CarsPage(this.getDriver());
+        carsPage.clcikAccept();
         carsPage.clickOnBrand();
         carsPage.clickOnWolkswagen();
         carsPage.clickOnTransmission();
