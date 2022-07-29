@@ -1,59 +1,58 @@
 package tests;
 
 import org.junit.Test;
+import pages.ContactConfirmationPage;
 import pages.ContactPage;
 import pages.HomePage;
 
 public class ContactTest extends HomeTest {
 
     @Test
-    public void ContactTest() {
+    public void ContactTest() throws InterruptedException {
 
         populateTestData();
         HomePage homePage = new HomePage(this.getDriver());
         homePage.clickOnContact();
         ContactPage contactPage = new ContactPage(this.getDriver());
         contactPage.sendContactMessage(testData);
-        contactPage.clickAccept();
+        ContactConfirmationPage contactConfirmationPage = new ContactConfirmationPage(this.getDriver());
+        contactConfirmationPage.validateMessage();
     }
+
     @Test
-    public void sendMessagewithoutName() {
+    public void sendMessageWithoutName() throws InterruptedException {
         populateTestData();
         HomePage homePage = new HomePage(this.getDriver());
         homePage.clickOnContact();
         ContactPage contactPage = new ContactPage(this.getDriver());
         contactPage.sendContactMessageWithoutName(testData);
-        contactPage.clickAccept();
     }
     @Test
-    public void sendMessageWithoutPhone() {
+    public void sendMessageWithoutPhone() throws InterruptedException {
 
         populateTestData();
         HomePage homePage = new HomePage(this.getDriver());
         homePage.clickOnContact();
         ContactPage contactPage = new ContactPage(this.getDriver());
         contactPage.sendContactMessageWithoutPhone(testData);
-        contactPage.clickAccept();
     }
     @Test
-    public void sendMessageWithouEmail() {
+    public void sendMessageWithoutEmail() throws InterruptedException {
 
         populateTestData();
         HomePage homePage = new HomePage(this.getDriver());
         homePage.clickOnContact();
         ContactPage contactPage = new ContactPage(this.getDriver());
         contactPage.sendContactMessageWithoutEmail(testData);
-        contactPage.clickAccept();
     }
     @Test
-    public void sendMessageWithoutMessage() {
+    public void sendMessageWithoutMessage() throws InterruptedException {
 
         populateTestData();
         HomePage homePage = new HomePage(this.getDriver());
         homePage.clickOnContact();
         ContactPage contactPage = new ContactPage(this.getDriver());
         contactPage.sendContactMessageWithoutMessage(testData);
-        contactPage.clickAccept();
     }
 
     @Test
@@ -70,7 +69,6 @@ public class ContactTest extends HomeTest {
         HomePage homePage = new HomePage(this.getDriver());
         homePage.clickOnContact();
         ContactPage contactPage = new ContactPage(this.getDriver());
-        contactPage.clickAccept();
         contactPage.clickgdpr();
         contactPage.closeWindow();
     }

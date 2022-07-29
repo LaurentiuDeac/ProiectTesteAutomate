@@ -2,8 +2,10 @@ package pages;
 
 import helpMethods.ElementMethods;
 import helpMethods.PageMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -65,5 +67,22 @@ public class HomePage {
         WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.titleIs(page));
     }
+
+    public void solveCaptcha() throws InterruptedException {
+        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@title='recaptcha challenge expires in two minutes']")));
+        if (!driver.findElements(By.xpath("//*[@id='rc-imageselect']/div[3]/div[2]/div[1]/div[1]/div[4]")).isEmpty()) {
+            System.out.println("solving captcha...");
+            WebElement buttonHolderElement = driver.findElement(By.xpath("//*[@id='rc-imageselect']/div[3]/div[2]/div[1]/div[1]/div[4]"));  //take the parent div of the closed button
+            Actions actionProvider = new Actions(driver);
+            actionProvider.moveToElement(buttonHolderElement).click().build().perform();
+            Thread.sleep(5000);
+            driver.switchTo().defaultContent();
+        }
+        else {
+            Thread.sleep(3000);
+        }
+    }
+
+
 
 }

@@ -4,8 +4,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import propertyFile.PropertyFile;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.HashMap;
 
@@ -27,7 +29,12 @@ public class HomeTest {
 
     public void initiateDriver(){
         System.setProperty("webdriver.chrome.driver", "C:/Automation/chromedriver.exe");
-        driver = new ChromeDriver();
+
+        File extensionForBypassCaptcha = new File("C:/Automation/1.3.1_0.crx");
+        ChromeOptions opt = new ChromeOptions();
+        opt.addExtensions(extensionForBypassCaptcha);
+
+        driver = new ChromeDriver(opt);
         driver.get("https://www.compexitrentacar.ro/en");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -42,7 +49,6 @@ public class HomeTest {
         PropertyFile propertyFile = new PropertyFile(className);
         testData = propertyFile.getAllValues();
     }
-
 
 
 

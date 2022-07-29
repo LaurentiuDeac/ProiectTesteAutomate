@@ -23,7 +23,6 @@ public class RegisterTest extends HomeTest  {
         RegisterPage registerPage = new RegisterPage(this.getDriver());
         registerPage.createAccount(testData);
 
-
     }
 
 }

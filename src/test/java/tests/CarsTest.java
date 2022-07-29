@@ -71,7 +71,6 @@ public class CarsTest extends HomeTest{
         CarsPage carsPage = new CarsPage(this.getDriver());
         carsPage.clickOnNumberOfSeats();
         carsPage.clickOnNumberOfSeats4();
-        //validateCarsNumberOfSeats("4");  // bug in the product
     }
 
     @Test
@@ -80,8 +79,9 @@ public class CarsTest extends HomeTest{
         homePage.clickOnCars();
         CarsPage carsPage = new CarsPage(this.getDriver());
         carsPage.clickOnNumberOfSeats();
-        carsPage.clickOnNumberOfSeats5();
+        carsPage.clickOnNumberOfSeats();
         validateCarsNumberOfSeats("5");
+        //validateCarsNumberOfSeats("5");  // bug in the product
     }
 
 

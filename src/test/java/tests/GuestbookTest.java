@@ -12,24 +12,22 @@ public class GuestbookTest extends HomeTest {
         HomePage homePage= new HomePage(this.getDriver());
         homePage.clickOnGuestbook();
         GuestbookPage guestbook = new GuestbookPage(this.getDriver());
-        guestbook.clickAccept();
         guestbook.clickCheckBox();
+        guestbook.clickAccept();
     }
 
     @Test
-    public void GuestbookTest() {
-
+    public void GuestbookTest() throws InterruptedException {
         populateTestData();
         HomePage homePage= new HomePage(this.getDriver());
         homePage.clickOnGuestbook();
         GuestbookPage guestbook = new GuestbookPage(this.getDriver());
         guestbook.sendMessage(testData);
-        guestbook.clickAccept();
     }
 
 
     @Test
-    public void writeMessageWithoutName(){
+    public void writeMessageWithoutName() throws InterruptedException {
         populateTestData();
         HomePage homePage= new HomePage(this.getDriver());
         homePage.clickOnGuestbook();
@@ -38,15 +36,12 @@ public class GuestbookTest extends HomeTest {
     }
 
     @Test
-    public void writeMessageWithoutMessage(){
+    public void writeMessageWithoutMessage() throws InterruptedException {
         populateTestData();
         HomePage homePage= new HomePage(this.getDriver());
         homePage.clickOnGuestbook();
         GuestbookPage guestbook = new GuestbookPage(this.getDriver());
         guestbook.writeCommentWithoutMessage(testData);
     }
-
-
-
 
 }

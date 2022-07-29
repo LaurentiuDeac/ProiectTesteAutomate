@@ -3,10 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.HashMap;
 
 public class ContactPage extends HomePage{
@@ -26,9 +23,9 @@ public class ContactPage extends HomePage{
     private WebElement company;
     @FindBy(xpath = "//textarea[@placeholder='Message']")
     private WebElement message;
-    @FindBy(xpath = "//div[@class='g-recaptcha']")
+    @FindBy(xpath = "//div[@data-sitekey='6Led7RsUAAAAAB5GjZqyszdSBpDkUizeusCwl1vX']")
     private WebElement checkBox;
-    @FindBy(xpath = "//button[@class='btn btn-default']")
+    @FindBy(xpath = "//button[@type='submit']")
     private WebElement send;
     @FindBy(xpath = "//ul/li/a[@href='/en/about-us']")
     private WebElement aboutUs;
@@ -65,10 +62,10 @@ public class ContactPage extends HomePage{
     public void clickMessage(){
         this.elementMethods.clickElement(message);
     }
-    private void clickCheckbox(){
+    public void clickCheckbox(){
         this.elementMethods.clickElement(checkBox);
     }
-    private void clickSend(){
+    public void clickSend(){
         this.elementMethods.clickElement(send);
     }
     public void clickAboutUs(){
@@ -82,7 +79,7 @@ public class ContactPage extends HomePage{
     }
 
 
-    public void sendContactMessage(HashMap<String, String> testData) {
+    public void sendContactMessage(HashMap<String, String> testData) throws InterruptedException {
         elementMethods.clickElement(name);
         elementMethods.fillElement(name, testData.get("name"));
         elementMethods.clickElement(phone);
@@ -95,18 +92,19 @@ public class ContactPage extends HomePage{
         elementMethods.fillElement(company,testData.get("company"));
         elementMethods.clickElement(message);
         elementMethods.fillElement(message, testData.get("message"));
+        if (buttonAccept.isDisplayed()) {
+            elementMethods.clickElement(buttonAccept);
+        }
         elementMethods.clickElement(checkBox);
-//        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(16));
-//        try {
-//            wait.wait(15);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-        //elementMethods.clickElement(send);
+        solveCaptcha();
+        if (buttonAccept.isDisplayed()) {
+            elementMethods.clickElement(buttonAccept);
+        }
 
+        elementMethods.clickJsElement(send);
     }
 
-    public void sendContactMessageWithoutName(HashMap<String, String> testData) {
+    public void sendContactMessageWithoutName(HashMap<String, String> testData) throws InterruptedException {
         elementMethods.clickElement(name);
 
         elementMethods.clickElement(phone);
@@ -119,11 +117,13 @@ public class ContactPage extends HomePage{
         elementMethods.fillElement(company, testData.get("company"));
         elementMethods.clickElement(message);
         elementMethods.fillElement(message, testData.get("message"));
+        elementMethods.clickElement(buttonAccept);
         elementMethods.clickElement(checkBox);
-        elementMethods.clickElement(send);
+        solveCaptcha();
+        elementMethods.clickJsElement(send);
     }
 
-    public void sendContactMessageWithoutPhone(HashMap<String, String> testData) {
+    public void sendContactMessageWithoutPhone(HashMap<String, String> testData) throws InterruptedException {
         elementMethods.clickElement(name);
         elementMethods.fillElement(name, testData.get("name"));
         elementMethods.clickElement(phone);
@@ -135,10 +135,12 @@ public class ContactPage extends HomePage{
         elementMethods.fillElement(company, testData.get("company"));
         elementMethods.clickElement(message);
         elementMethods.fillElement(message, testData.get("message"));
+        elementMethods.clickElement(buttonAccept);
         elementMethods.clickElement(checkBox);
-        elementMethods.clickElement(send);
+        solveCaptcha();
+        elementMethods.clickJsElement(send);
     }
-    public void sendContactMessageWithoutEmail(HashMap<String, String> testData) {
+    public void sendContactMessageWithoutEmail(HashMap<String, String> testData) throws InterruptedException {
         elementMethods.clickElement(name);
         elementMethods.fillElement(name, testData.get("name"));
         elementMethods.clickElement(phone);
@@ -148,11 +150,13 @@ public class ContactPage extends HomePage{
         elementMethods.fillElement(company, testData.get("company"));
         elementMethods.clickElement(message);
         elementMethods.fillElement(message, testData.get("message"));
+        elementMethods.clickElement(buttonAccept);
         elementMethods.clickElement(checkBox);
+        solveCaptcha();
         elementMethods.clickElement(send);
     }
 
-    public void sendContactMessageWithoutMessage(HashMap<String, String> testData) {
+    public void sendContactMessageWithoutMessage(HashMap<String, String> testData) throws InterruptedException {
         elementMethods.clickElement(name);
         elementMethods.fillElement(name, testData.get("name"));
         elementMethods.clickElement(phone);
@@ -162,8 +166,10 @@ public class ContactPage extends HomePage{
         elementMethods.clickElement(locality);
         elementMethods.fillElement(locality, testData.get("locality"));
         elementMethods.clickElement(message);
+        elementMethods.clickElement(buttonAccept);
         elementMethods.clickElement(checkBox);
-        elementMethods.clickElement(send);
+        solveCaptcha();
+        elementMethods.clickJsElement(send);
     }
 
 
