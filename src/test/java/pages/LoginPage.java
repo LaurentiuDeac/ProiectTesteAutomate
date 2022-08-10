@@ -65,6 +65,11 @@ public class LoginPage extends HomePage {
         elementMethods.clickElement(continueButton);
     }
 
+    public void fillEmailAndContinueUnSuccess(HashMap<String, String> testData) {
+        elementMethods.fillElement(emailElement, testData.get("Email"));
+        elementMethods.clickElement(continueButton);
+    }
+
 
 
 }

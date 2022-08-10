@@ -22,6 +22,20 @@ public class RegisterTest extends HomeTest  {
 
         RegisterPage registerPage = new RegisterPage(this.getDriver());
         registerPage.createAccount(testData);
+    }
+
+    @Test
+    public void RegisterWithUnSuccess(){
+        populateTestData();
+        HomePage homePage= new HomePage(this.getDriver());
+        homePage.hoverOnUser();
+        homePage.clickOnRegister();
+
+        LoginPage loginPage = new LoginPage(this.getDriver());
+        loginPage.fillEmailAndContinueUnSuccess(testData);
+
+        RegisterPage registerPage = new RegisterPage(this.getDriver());
+        registerPage.doNotcreateAccount(testData);
 
     }
 
