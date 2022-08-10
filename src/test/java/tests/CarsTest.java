@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.NoSuchElementException;
 import pages.CarsPage;
 import pages.HomePage;
 
@@ -73,15 +74,14 @@ public class CarsTest extends HomeTest{
         carsPage.clickOnNumberOfSeats4();
     }
 
-    @Test
+    @Test //(expected=NoSuchElementException.class)
     public void selectNumberOfSeats5Test() {
         HomePage homePage = new HomePage(this.getDriver());
         homePage.clickOnCars();
         CarsPage carsPage = new CarsPage(this.getDriver());
         carsPage.clickOnNumberOfSeats();
         carsPage.clickOnNumberOfSeats();
-        validateCarsNumberOfSeats("5");
-        //validateCarsNumberOfSeats("5");  // bug in the product
+        validateCarsNumberOfSeats("5");   // bug in the product
     }
 
 

@@ -76,11 +76,11 @@ public class HomePage {
             Actions actionProvider = new Actions(driver);
             actionProvider.moveToElement(buttonHolderElement).click().build().perform();
             Thread.sleep(5000);
-            driver.switchTo().defaultContent();
         }
         else {
-            Thread.sleep(3000);
+            Thread.sleep(1500);
         }
+        driver.switchTo().defaultContent();
     }
 
 
