@@ -26,7 +26,9 @@ public class ElementMethods {
     }
 
     public void scrollIntoViewElement(WebElement element){
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", element);
+       // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", element);
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("window.scrollBy(0,3000)");
     }
 
     public void clickJsElement(WebElement element){

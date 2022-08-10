@@ -95,6 +95,7 @@ public class ContactPage extends HomePage{
         if (buttonAccept.isDisplayed()) {
             elementMethods.clickElement(buttonAccept);
         }
+        elementMethods.scrollIntoViewElement(send);
         elementMethods.clickElement(checkBox);
         solveCaptcha();
         if (buttonAccept.isDisplayed()) {
@@ -118,6 +119,7 @@ public class ContactPage extends HomePage{
         elementMethods.clickElement(message);
         elementMethods.fillElement(message, testData.get("message"));
         elementMethods.clickElement(buttonAccept);
+        elementMethods.scrollIntoViewElement(send);
         elementMethods.clickElement(checkBox);
         solveCaptcha();
         elementMethods.clickJsElement(send);
@@ -136,6 +138,7 @@ public class ContactPage extends HomePage{
         elementMethods.clickElement(message);
         elementMethods.fillElement(message, testData.get("message"));
         elementMethods.clickElement(buttonAccept);
+        elementMethods.scrollIntoViewElement(send);
         elementMethods.clickElement(checkBox);
         solveCaptcha();
         elementMethods.clickJsElement(send);
@@ -151,6 +154,7 @@ public class ContactPage extends HomePage{
         elementMethods.clickElement(message);
         elementMethods.fillElement(message, testData.get("message"));
         elementMethods.clickElement(buttonAccept);
+        elementMethods.scrollIntoViewElement(send);
         elementMethods.clickElement(checkBox);
         solveCaptcha();
         elementMethods.clickElement(send);
@@ -167,6 +171,7 @@ public class ContactPage extends HomePage{
         elementMethods.fillElement(locality, testData.get("locality"));
         elementMethods.clickElement(message);
         elementMethods.clickElement(buttonAccept);
+        elementMethods.scrollIntoViewElement(send);
         elementMethods.clickElement(checkBox);
         solveCaptcha();
         elementMethods.clickJsElement(send);
