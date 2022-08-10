@@ -32,6 +32,14 @@ public class RegisterPage extends HomePage {
 
     }
 
+    public void doNotCreateAccount(HashMap<String, String> testData){
+        pageMethods.validateTitlePage(testData.get("registerPage"));
+        elementMethods.fillElement(passwordElement, testData.get("Password"));
+        elementMethods.fillElement(confirmPasswordElement, testData.get("NotConfirmPassword"));
+        elementMethods.clickElement(createAccountButton);
+
+    }
+
 
 
 

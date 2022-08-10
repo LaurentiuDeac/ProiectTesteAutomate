@@ -35,7 +35,7 @@ public class RegisterTest extends HomeTest  {
         loginPage.fillEmailAndContinueUnSuccess(testData);
 
         RegisterPage registerPage = new RegisterPage(this.getDriver());
-        registerPage.doNotcreateAccount(testData);
+        registerPage.doNotCreateAccount(testData);
 
     }
 
